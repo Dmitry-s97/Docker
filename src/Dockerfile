@@ -1,8 +1,8 @@
 FROM nginx
 RUN useradd -ms /bin/bash guest
-COPY /04/Files/fastcgi.cpp /home/
-COPY /04/Files/entrypoint.sh /home/
-COPY /04/Files/nginx.conf /etc/nginx/
+COPY /04/fastcgi.cpp /home/
+COPY /04/entrypoint.sh /home/
+COPY /04/nginx.conf /etc/nginx/
 USER root
 RUN apt-get update && apt-get install -y g++ libfcgi-dev spawn-fcgi && rm -rf /var/cache/apt/archives /var/lib/apt/lists/*
 WORKDIR /home
